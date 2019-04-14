@@ -258,14 +258,23 @@ string ariel::PhysicalNumber::toString(){
 
      string ariel::removeZeroes(string number){
     int size = number.size();
+    
     int i=size-1;
+    while(i>=0 && number.at(i)!='.'){
+        i--;
+    }
+    if(i>-1){
+    i=size-1;    
     while(number.at(i)=='0'){
         i--;
     }
     if(number.at(i)=='.')
     i--;
     return number.substr(0,i+1);
-}
+    }
+    return number;
+     }
+
 
 
     string ariel::operator+(PhysicalNumber a, PhysicalNumber b){
@@ -520,7 +529,7 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
 
 
 
-    string reformString(PhysicalNumber a, string str){
+    string ariel::reformString(PhysicalNumber a, string str){
         return str+"["+unitToStr(a._unit)+"]";
     }
 
