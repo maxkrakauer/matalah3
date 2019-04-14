@@ -380,7 +380,7 @@ string ariel::operator-(PhysicalNumber a){
      }
 
 
-string ariel::operator--(PhysicalNumber &a){
+string ariel::operator--(PhysicalNumber &a,int){
     a._value=a._value-1;
     string number = to_string(a._value);
     string reformed = removeZeroes(number);
@@ -389,7 +389,7 @@ string ariel::operator--(PhysicalNumber &a){
     return reformed;
 }
 
-string ariel::operator++(PhysicalNumber &a){
+string ariel::operator++(PhysicalNumber &a,int){
     a._value=a._value+1;
     string number = to_string(a._value);
     string reformed = removeZeroes(number);

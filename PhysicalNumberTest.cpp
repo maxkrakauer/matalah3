@@ -64,10 +64,11 @@ int main() {
 
   .setname("negative numbers")
   .CHECK_THROWS((e += PhysicalNumber(1, Unit::TON)))
-  .CHECK_OUTPUT(e+e, "-4[km]")
+  .CHECK_OUTPUT(e++, "-1[km]")
+  .CHECK_OUTPUT(e+e, "-2[km]")
   .CHECK_OUTPUT(-e, "2[km]")
   .CHECK_OUTPUT(e-e, "0[km]")
-  .CHECK_OUTPUT(+e,"-2[km]")
+  .CHECK_OUTPUT(+e,"-1[km]")
  
 
     // YOUR TESTS - INSERT AS MANY AS YOU WANT
