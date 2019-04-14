@@ -375,6 +375,7 @@ string ariel::operator--(PhysicalNumber &a){
     a._value=a._value-1;
     string number = to_string(a._value);
     string reformed = removeZeroes(number);
+    reformed = reformString(a,reformed);
     cout<<reformed<<endl;
     return reformed;
 }
@@ -383,6 +384,7 @@ string ariel::operator++(PhysicalNumber &a){
     a._value=a._value+1;
     string number = to_string(a._value);
     string reformed = removeZeroes(number);
+    reformed = reformString(a,reformed);
     cout<<reformed<<endl;
     return reformed;
 }
@@ -517,4 +519,8 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
     }
 
 
+
+    string reformString(PhysicalNumber a, string str){
+        return str+"["+unitToStr(a._unit)+"]";
+    }
 

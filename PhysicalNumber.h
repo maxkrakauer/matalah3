@@ -111,7 +111,7 @@ string unitToStr(Unit unit);
 
      bool operator!=(PhysicalNumber a, PhysicalNumber b);
 
-     
+     string reformString(PhysicalNumber, string str);
 
 
 
