@@ -88,6 +88,10 @@ string unitToStr(Unit unit);
 
      string operator--(PhysicalNumber &a, int);
 
+     string operator++(PhysicalNumber &a);
+
+     string operator--(PhysicalNumber &a);
+
      
 
      ostream & operator<<(std::ostream &out, PhysicalNumber a);

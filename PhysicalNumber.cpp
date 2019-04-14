@@ -381,6 +381,36 @@ string ariel::operator-(PhysicalNumber a){
 
 
 string ariel::operator--(PhysicalNumber &a,int){
+    int prev=a._value;
+    a._value=a._value-1;
+    string number = to_string(prev);
+    string reformed = removeZeroes(number);
+    reformed = reformString(a,reformed);
+    cout<<reformed<<endl;
+    return reformed;
+}
+
+string ariel::operator++(PhysicalNumber &a,int){
+    int prev=a._value;
+    a._value=a._value+1;
+    string number = to_string(prev);
+    string reformed = removeZeroes(number);
+    reformed = reformString(a,reformed);
+    cout<<reformed<<endl;
+    return reformed;
+}
+
+
+string ariel::operator++(PhysicalNumber &a){
+    a._value=a._value+1;
+    string number = to_string(a._value);
+    string reformed = removeZeroes(number);
+    reformed = reformString(a,reformed);
+    cout<<reformed<<endl;
+    return reformed;
+}
+
+string ariel::operator--(PhysicalNumber &a){
     a._value=a._value-1;
     string number = to_string(a._value);
     string reformed = removeZeroes(number);
@@ -389,14 +419,7 @@ string ariel::operator--(PhysicalNumber &a,int){
     return reformed;
 }
 
-string ariel::operator++(PhysicalNumber &a,int){
-    a._value=a._value+1;
-    string number = to_string(a._value);
-    string reformed = removeZeroes(number);
-    reformed = reformString(a,reformed);
-    cout<<reformed<<endl;
-    return reformed;
-}
+
 
 
 ostream & ariel::operator<<(std::ostream &out, PhysicalNumber a){
