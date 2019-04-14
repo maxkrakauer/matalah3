@@ -9,8 +9,8 @@
 #include <sstream>
 #include <stdexcept>
 using std::cout, std::endl, std::boolalpha, std::istringstream;
-#include "PhysicalNumber.hpp"
-#include "Unit.hpp"
+#include "PhysicalNumber.h"
+#include "Unit.h"
 using ariel::PhysicalNumber, ariel::Unit;
 
 int main() {

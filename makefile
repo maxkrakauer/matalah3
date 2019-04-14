@@ -18,13 +18,13 @@ main: main.o PhysicalNumber.o
 	clang++-6.0 -std=c++17 --compile $< -o $@
 
 
-PhysicalNumber.o: PhysicalNumber.hpp Unit.hpp
+PhysicalNumber.o: PhysicalNumber.h Unit.h
 
-main.o: PhysicalNumber.hpp Unit.hpp
+main.o: PhysicalNumber.h Unit.h
 
-PhysicalNumberDemo.o: PhysicalNumber.hpp Unit.hpp
+PhysicalNumberDemo.o: PhysicalNumber.h Unit.h
 
-PhysicalNumberTest.o: PhysicalNumber.hpp Unit.hpp badkan.hpp
+PhysicalNumberTest.o: PhysicalNumber.h Unit.h badkan.hpp
 
 clean:
 	rm -f *.o demo test
