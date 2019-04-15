@@ -317,9 +317,9 @@ string ariel::PhysicalNumber::toString(){
      }
 
 
-     PhysicalNumber ariel::operator+(PhysicalNumber a){
+     string ariel::operator+(PhysicalNumber a){
         cout<<a.toString()<<endl;
-        return a;
+        return a.toString();
      }
 
      string ariel::operator-(PhysicalNumber a, PhysicalNumber b){
@@ -371,13 +371,13 @@ ariel::PhysicalNumber::PhysicalNumber(double value, Unit unit){
 
 
 
-    PhysicalNumber ariel::operator-(PhysicalNumber a){
+    string ariel::operator-(PhysicalNumber a){
              //string total = to_string(-a._value);
              //string reformed = removeZeroes(total);
              //cout<<reformed<<endl;
              //return reformed+"["+unitToStr(a._unit)+"]";
              a._value = -a._value;
-             return a;
+             return a.toString();
 
      }
 

@@ -76,13 +76,13 @@ string unitToStr(Unit unit);
 
      string operator+=(PhysicalNumber &a, PhysicalNumber b);
 
-     PhysicalNumber operator+(PhysicalNumber a);
+     string operator+(PhysicalNumber a);
 
      string  operator-(PhysicalNumber a, PhysicalNumber b);
 
      string operator-=(PhysicalNumber &a, PhysicalNumber b);
 
-     PhysicalNumber operator-(PhysicalNumber a);
+     string operator-(PhysicalNumber a);
 
      string operator++(PhysicalNumber &a,int);
 
