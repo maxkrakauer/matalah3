@@ -586,6 +586,7 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
     string s = a.toString();
    
     in>>s;
+    return s;
 
     /**
 
@@ -661,7 +662,7 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
         else
             return (a._value == convert(b._value, a._unit,b._unit));
     }
-
+/**
     bool operator==(bool boo, PhysicalNumber b){
          //PhysicalNumber a = strToNum(str);
 
@@ -672,7 +673,7 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
         PhysicalNumber b = strToNum(str);
         return a==b;
     }
-
+*/
 
     bool ariel::operator>=(PhysicalNumber a, PhysicalNumber b){
         if (same(a._unit,b._unit)==false)
@@ -680,6 +681,7 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
         else
             return (a._value >= convert(b._value, a._unit,b._unit));
     }
+    /**
 
     bool operator>=(string str, PhysicalNumber b){
         PhysicalNumber a = strToNum(str);
@@ -690,14 +692,14 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
          PhysicalNumber b = strToNum(str);
         return a>=b;
      }
-
+*/
     bool ariel::operator<=(PhysicalNumber a, PhysicalNumber b){
         if (same(a._unit,b._unit)==false)
         throw "incopatible units";
         else
             return (a._value <= convert(b._value, a._unit,b._unit));
     }
-
+/**
     bool ariel::operator<=(string str, PhysicalNumber b){
         PhysicalNumber a = strToNum(str);
          return a<=b;
@@ -708,14 +710,14 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
          PhysicalNumber b = strToNum(str);
         return a<=b;
      }
-
+*/
     bool ariel::operator<(PhysicalNumber a, PhysicalNumber b){
         if (same(a._unit,b._unit)==false)
         throw "incopatible units";
         else
             return (a._value < convert(b._value, a._unit,b._unit));
     }
-
+/**
     bool ariel::operator<(string str, PhysicalNumber b){
         PhysicalNumber a = strToNum(str);
         return a<b;
@@ -725,14 +727,14 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
          PhysicalNumber b = strToNum(str);
         return a<b;
      }
-
+*/
     bool ariel::operator>(PhysicalNumber a, PhysicalNumber b){
         if (same(a._unit,b._unit)==false)
         throw "incopatible units";
         else
             return (a._value > convert(b._value, a._unit,b._unit));
     }
-
+/**
     bool ariel::operator>(string str, PhysicalNumber b){
          PhysicalNumber a = strToNum(str);
          return a>b;
@@ -742,14 +744,14 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
          PhysicalNumber b = strToNum(str);
          return a>b;
      }
-
+*/
     bool ariel::operator!=(PhysicalNumber a, PhysicalNumber b){
         if (same(a._unit,b._unit)==false)
         throw "incopatible units";
         else
             return (a._value != convert(b._value, a._unit,b._unit));
     }
-
+/**
      bool ariel::operator!=(string str, PhysicalNumber b){
          PhysicalNumber a = strToNum(str);
          return a!=b;
@@ -760,6 +762,6 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
          return a!=b;
      }
 
-
+**/
 
     
