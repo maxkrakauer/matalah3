@@ -277,6 +277,63 @@ string ariel::PhysicalNumber::toString(){
 
 
 
+     ariel::PhysicalNumber strToNum(string s){
+        //create char array
+        char str[s.size()+1];
+        strcpy(str, s.c_str());
+        
+        
+        int i=0;
+        char* number;
+        char* measure;
+
+        int size = sizeof(str);
+        while(*(str+i)!='[' && i<size)
+        i++;
+        if(i==size)
+        throw "ilegal input";
+        number = (char*)malloc(sizeof(char)*i);
+        std::strncpy(number,str,i);
+        double value;
+        cout<<"before try"<<endl;
+        try{
+            value = std::atof(number);
+            cout<<value<<endl;
+        }
+        catch (std::invalid_argument const &e){
+        throw "ilegal input";
+    }
+        cout<<"after try"<<endl;
+    
+        int j=i+1;
+        while(*(str+i)!=']' && i<size)
+        i++;
+        cout<<"before throw"<<endl;
+        if(i==size)
+        throw "ilegal input";
+        cout<<"after throw"<<endl;
+        measure = (char*)malloc(sizeof(char)*(i-j));
+        std::strncpy(measure,str+j,i-j);
+        cout<<number<<endl;
+        if(ariel::isUnit(measure)==false)
+        throw "ilegal input";
+        cout<<measure<<endl;
+        cout<<value<<endl;
+
+        PhysicalNumber a(value, ariel::strToUnit(measure));
+
+        cout<<"a's values is:"<<endl;
+        cout<<a<<endl;
+        delete(number);
+        number=NULL;
+        delete(measure);
+        measure=NULL;
+        return a;
+
+    }
+
+
+
     string ariel::operator+(PhysicalNumber a, PhysicalNumber b){
          cout<<"a+b has started"<<endl;
          if(same(a._unit, b._unit)==false){
@@ -295,6 +352,17 @@ string ariel::PhysicalNumber::toString(){
              cout<<str<<endl;
              return str;
          }
+     }
+
+
+     string operator+(string str, PhysicalNumber b){
+         PhysicalNumber a = strToNum(str);
+         return (a+b);
+     }
+
+     string operator+(PhysicalNumber a, string str){
+         PhysicalNumber b = strToNum(str);
+         return (a+b);
      }
 
     
@@ -367,6 +435,9 @@ ariel::PhysicalNumber::PhysicalNumber(double value, Unit unit){
         _unit = unit;
         _value = value;
     }
+
+
+    
 
 
 
