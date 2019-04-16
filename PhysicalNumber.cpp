@@ -569,13 +569,13 @@ PhysicalNumber ariel::operator--(PhysicalNumber &a){
 
 
 
-ostream & ariel::operator<<(std::ostream &out, PhysicalNumber a){
+ostream & ariel::operator<<(std::ostream &out, ariel::PhysicalNumber a){
     out<<a.toString();
     return out;
 }
 
 
-void ariel::operator<<(PhysicalNumber a, std::ostream &out){
+void ariel::operator<<(ariel::PhysicalNumber a, std::ostream &out){
    out<<endl;
 }
 
@@ -662,8 +662,9 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
             return (a._value == convert(b._value, a._unit,b._unit));
     }
 
-    bool operator==(string str, PhysicalNumber b){
-         PhysicalNumber a = strToNum(str);
+    bool operator==(bool boo, PhysicalNumber b){
+         //PhysicalNumber a = strToNum(str);
+
          return a==b;
     }
 
@@ -697,13 +698,13 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
             return (a._value <= convert(b._value, a._unit,b._unit));
     }
 
-    bool operator<=(string str, PhysicalNumber b){
+    bool ariel::operator<=(string str, PhysicalNumber b){
         PhysicalNumber a = strToNum(str);
          return a<=b;
     }
 
 
-     bool operator<=(PhysicalNumber a, string str){
+     bool ariel::operator<=(PhysicalNumber a, string str){
          PhysicalNumber b = strToNum(str);
         return a<=b;
      }
@@ -715,12 +716,12 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
             return (a._value < convert(b._value, a._unit,b._unit));
     }
 
-    bool operator<(string str, PhysicalNumber b){
+    bool ariel::operator<(string str, PhysicalNumber b){
         PhysicalNumber a = strToNum(str);
         return a<b;
     }
 
-     bool operator<(PhysicalNumber a, string str){
+     bool ariel::operator<(PhysicalNumber a, string str){
          PhysicalNumber b = strToNum(str);
         return a<b;
      }
@@ -732,12 +733,12 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
             return (a._value > convert(b._value, a._unit,b._unit));
     }
 
-    bool operator>(string str, PhysicalNumber b){
+    bool ariel::operator>(string str, PhysicalNumber b){
          PhysicalNumber a = strToNum(str);
          return a>b;
     }
 
-     bool operator>(PhysicalNumber a, string str){
+     bool ariel::operator>(PhysicalNumber a, string str){
          PhysicalNumber b = strToNum(str);
          return a>b;
      }
@@ -749,12 +750,12 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
             return (a._value != convert(b._value, a._unit,b._unit));
     }
 
-     bool operator!=(string str, PhysicalNumber b){
+     bool ariel::operator!=(string str, PhysicalNumber b){
          PhysicalNumber a = strToNum(str);
          return a!=b;
      }
 
-     bool operator!=(PhysicalNumber a, string str){
+     bool ariel::operator!=(PhysicalNumber a, string str){
          PhysicalNumber b = strToNum(str);
          return a!=b;
      }

@@ -110,9 +110,9 @@ string unitToStr(Unit unit);
 
      
 
-     ostream & operator<<(std::ostream &out, PhysicalNumber a);
+     ostream & operator<<(std::ostream &out, ariel::PhysicalNumber a);
 
-     void operator<<(PhysicalNumber a, std::ostream &out);
+     void operator<<(ariel::PhysicalNumber a, std::ostream &out);
 
      istream &  operator>>(std::istream &in, PhysicalNumber& a);
 
