@@ -80,11 +80,20 @@ string unitToStr(Unit unit);
 
      string operator+=(PhysicalNumber &a, PhysicalNumber b);
 
+     string operator+=(PhysicalNumber &a, string str);
+
+     
      string operator+(PhysicalNumber a);
 
      string  operator-(PhysicalNumber a, PhysicalNumber b);
 
+     string operator-(string str, PhysicalNumber b);
+
+     string operator-(PhysicalNumber a, string str);
+
      string operator-=(PhysicalNumber &a, PhysicalNumber b);
+
+     string operator-=(PhysicalNumber &a, string str);
 
      string operator-(PhysicalNumber a);
 

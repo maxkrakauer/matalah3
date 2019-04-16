@@ -365,6 +365,16 @@ string ariel::PhysicalNumber::toString(){
          return (a+b);
      }
 
+     string operator-(string str, PhysicalNumber b){
+         PhysicalNumber a = strToNum(str);
+         return (a-b);
+     }
+
+     string operator-(PhysicalNumber a, string str){
+         PhysicalNumber b = strToNum(str);
+         return (a-b);
+     }
+
     
     string ariel::operator+=(PhysicalNumber &a, PhysicalNumber b){
          cout<<"before same"<<endl;
@@ -383,6 +393,18 @@ string ariel::PhysicalNumber::toString(){
              return str;
          }
      }
+
+
+     string operator+=(PhysicalNumber &a, string str){
+         PhysicalNumber b = strToNum(str);
+         a+=b;
+         return a.toString();
+     }
+
+
+
+
+     
 
 
      string ariel::operator+(PhysicalNumber a){
@@ -421,6 +443,15 @@ string ariel::PhysicalNumber::toString(){
              return str;
          }
      }
+
+     string operator-=(PhysicalNumber &a, string str){
+         PhysicalNumber b = strToNum(str);
+         a-=b;
+         return a.toString();
+     }
+
+     
+
 
 
      
