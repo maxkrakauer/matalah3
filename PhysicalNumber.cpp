@@ -342,27 +342,32 @@ string ariel::PhysicalNumber::toString(){
 
 
 
-    string ariel::operator+(PhysicalNumber a, PhysicalNumber b){
+    PhysicalNumber ariel::operator+(PhysicalNumber a, PhysicalNumber b){
          cout<<"a+b has started"<<endl;
          if(same(a._unit, b._unit)==false){
          cout<<"same went wrong"<<endl;
          throw "mismatch";
          }
          else{
+             
              double val = ariel::convert(b._value, a._unit,b._unit);
              cout<<"val is: "<<val<<endl;
              cout<<"a's is: "<<a._value<<endl;
              double sum = val + a._value;
+             return PhysicalNumber(sum, a._unit);
+             /**
              cout<<"sum is: "<<sum<<endl;
              string total = to_string(sum);
              string reformed = removeZeroes(total);
              string str = reformed+  ariel::toString(a._unit);
              cout<<str<<endl;
              return str;
+             */
+
          }
      }
 
-
+/**
      string operator+(string str, PhysicalNumber b){
          PhysicalNumber a = strToNum(str);
          return (a+b);
@@ -372,25 +377,29 @@ string ariel::PhysicalNumber::toString(){
          PhysicalNumber b = strToNum(str);
          return (a+b);
      }
+     */
 
 
-     string ariel::operator-(PhysicalNumber a, PhysicalNumber b){
+     PhysicalNumber ariel::operator-(PhysicalNumber a, PhysicalNumber b){
          if(!same(a._unit, b._unit))
          throw "mismatch";
          else{
              double val = ariel::convert(b._value, a._unit,b._unit);
              double sum = a._value - val;
+             return PhysicalNumber(sum, a._unit);
+             /**
              string str;
              string total = to_string(sum);
              string reformed = removeZeroes(total);
              str = reformed+  ariel::toString(a._unit);
              cout<<str<<endl;
              return str;
+             */
          }
      }
 
 
-
+/**
 
      string operator-(string str, PhysicalNumber b){
          PhysicalNumber a = strToNum(str);
@@ -403,9 +412,9 @@ string ariel::PhysicalNumber::toString(){
      }
 
      
-
+*/
     
-    string ariel::operator+=(PhysicalNumber &a, PhysicalNumber b){
+    PhysicalNumber ariel::operator+=(PhysicalNumber &a, PhysicalNumber b){
          cout<<"before same"<<endl;
          if(same(a._unit, b._unit)==false)
          throw "mismatch";
@@ -413,17 +422,21 @@ string ariel::PhysicalNumber::toString(){
          
              double val = ariel::convert(b._value, a._unit,b._unit);
              double sum = val + a._value;
-             a._value=sum;
+             a._value = sum;
+             return a;
+             
+             /**
              string str;
              string total = to_string(sum);
              string reformed = removeZeroes(total);
              str = reformed+  ariel::toString(a._unit);
              cout<<str<<endl;
              return str;
+             */
          }
      }
 
-
+/**
      string operator+=(PhysicalNumber &a, string str){
          PhysicalNumber b = strToNum(str);
          return a+=b;
@@ -440,32 +453,35 @@ string ariel::PhysicalNumber::toString(){
         return a.toString();
      }
 
-     
+     */
 
 
-     string ariel::operator-=(PhysicalNumber &a, PhysicalNumber b){
+     PhysicalNumber ariel::operator-=(PhysicalNumber &a, PhysicalNumber b){
          if(!same(a._unit, b._unit))
          throw "mismatch";
          else{
              double val = ariel::convert(b._value, a._unit,b._unit);
              double sum = a._value - val;
              a._value=sum;
+             return a;
+             /**
              string str;
              string total = to_string(sum);
              string reformed = removeZeroes(total);
              str = reformed+  ariel::toString(a._unit);
              cout<<str<<endl;
              return str;
+             */
          }
      }
-
+/**
      string operator-=(PhysicalNumber &a, string str){
          PhysicalNumber b = strToNum(str);
          return a-=b;
      }
 
 
-
+*/
 
 
      
@@ -487,54 +503,67 @@ ariel::PhysicalNumber::PhysicalNumber(double value, Unit unit){
 
 
 
-    string ariel::operator-(PhysicalNumber a){
+    PhysicalNumber ariel::operator-(PhysicalNumber a){
              //string total = to_string(-a._value);
              //string reformed = removeZeroes(total);
              //cout<<reformed<<endl;
              //return reformed+"["+unitToStr(a._unit)+"]";
              a._value = -a._value;
-             return a.toString();
+             return a;
+            // return a.toString();
 
      }
 
 
-string ariel::operator--(PhysicalNumber &a,int){
-    int prev=a._value;
+PhysicalNumber ariel::operator--(PhysicalNumber &a,int){
+    double prev=a._value;
     a._value=a._value-1;
+    return PhysicalNumber(prev,a._unit);
+    /**
     string number = to_string(prev);
     string reformed = removeZeroes(number);
     reformed = reformString(a,reformed);
     cout<<reformed<<endl;
     return reformed;
+    */
 }
 
-string ariel::operator++(PhysicalNumber &a,int){
+PhysicalNumber ariel::operator++(PhysicalNumber &a,int){
     int prev=a._value;
     a._value=a._value+1;
+    return PhysicalNumber(prev,a._unit);
+    /**
     string number = to_string(prev);
     string reformed = removeZeroes(number);
     reformed = reformString(a,reformed);
     cout<<reformed<<endl;
     return reformed;
+    */
 }
 
 
-string ariel::operator++(PhysicalNumber &a){
+PhysicalNumber ariel::operator++(PhysicalNumber &a){
     a._value=a._value+1;
+    return a;
+    /**
     string number = to_string(a._value);
     string reformed = removeZeroes(number);
     reformed = reformString(a,reformed);
     cout<<reformed<<endl;
     return reformed;
+    */
 }
 
-string ariel::operator--(PhysicalNumber &a){
+PhysicalNumber ariel::operator--(PhysicalNumber &a){
     a._value=a._value-1;
+    return a;
+    /**
     string number = to_string(a._value);
     string reformed = removeZeroes(number);
     reformed = reformString(a,reformed);
     cout<<reformed<<endl;
     return reformed;
+    */
 }
 
 
@@ -547,19 +576,18 @@ ostream & ariel::operator<<(std::ostream &out, PhysicalNumber a){
 
 
 void ariel::operator<<(PhysicalNumber a, std::ostream &out){
-   cout<<endl;
-   
+   out<<endl;
 }
 
 
 istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
     cout<<"does the >> func start"<<endl;
     //insert string into str
-    string s;
+    string s = a.toString();
    
     in>>s;
 
-    
+    /**
 
 
 
@@ -618,6 +646,7 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
     delete(measure);
     measure=NULL;
     return in;
+    */
     }
 
 

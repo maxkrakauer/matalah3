@@ -72,41 +72,39 @@ string unitToStr(Unit unit);
 
      string removeZeroes(string number);
 
-     string operator+(PhysicalNumber a, PhysicalNumber b);
+     PhysicalNumber operator+(PhysicalNumber a, PhysicalNumber b);
 
      string operator+(string str, PhysicalNumber b);
 
      string operator+(PhysicalNumber a, string str);
 
-     string operator+=(PhysicalNumber &a, PhysicalNumber b);
+     PhysicalNumber operator+=(PhysicalNumber &a, PhysicalNumber b);
 
      string operator+=(PhysicalNumber &a, string str);
 
-     string operator+=(string str, PhysicalNumber &b);
-
      string operator+(PhysicalNumber a);
 
-     string  operator-(PhysicalNumber a, PhysicalNumber b);
+     PhysicalNumber operator-(PhysicalNumber a, PhysicalNumber b);
 
      string operator-(string str, PhysicalNumber b);
 
      string operator-(PhysicalNumber a, string str);
 
-     string operator-=(PhysicalNumber &a, PhysicalNumber b);
+     PhysicalNumber operator-=(PhysicalNumber &a, PhysicalNumber b);
 
      string operator-=(PhysicalNumber &a, string str);
 
-     string operator-=(string str, PhysicalNumber &b);
+     PhysicalNumber operator-(PhysicalNumber a);
 
-     string operator-(PhysicalNumber a);
+     PhysicalNumber operator++(PhysicalNumber &a,int);
 
-     string operator++(PhysicalNumber &a,int);
+     PhysicalNumber operator++(PhysicalNumber &a,int);
 
-     string operator--(PhysicalNumber &a, int);
+     PhysicalNumber operator--(PhysicalNumber &a, int);
 
-     string operator++(PhysicalNumber &a);
+     PhysicalNumber operator++(PhysicalNumber &a);
 
-     string operator--(PhysicalNumber &a);
+     PhysicalNumber operator--(PhysicalNumber &a);
 
      PhysicalNumber strToNum(string str);
 
@@ -122,40 +120,53 @@ string unitToStr(Unit unit);
 
 
      bool operator==(PhysicalNumber a, PhysicalNumber b);
+     /**
 
-     bool operator==(string str, PhysicalNumber b);
+     bool operator==(bool boo, PhysicalNumber b);
 
-     bool operator==(PhysicalNumber a, string str);
+     bool operator==(PhysicalNumber a, bool boo);
+     */
 
      bool operator>=(PhysicalNumber a, PhysicalNumber b);
+     /**
 
-     bool operator>=(string str, PhysicalNumber b);
+     bool operator>=(bool boo, PhysicalNumber b);
 
-     bool operator>=(PhysicalNumber a, string str);
+     bool operator>=(PhysicalNumber a, bool boo);
+     */
 
      bool operator<=(PhysicalNumber a, PhysicalNumber b);
+     /**
 
-     bool operator<=(string str, PhysicalNumber b);
+     bool operator<=(bool boo, PhysicalNumber b);
 
-     bool operator<=(PhysicalNumber a, string str);
+     bool operator<=(PhysicalNumber a, bool boo);
+     **/
 
      bool operator>(PhysicalNumber a, PhysicalNumber b);
+     /**
 
-     bool operator>(string str, PhysicalNumber b);
+     bool operator>(bool boo, PhysicalNumber b);
 
-     bool operator>(PhysicalNumber a, string str);
+     bool operator>(PhysicalNumber a, bool boo);
+     */
 
      bool operator<(PhysicalNumber a, PhysicalNumber b);
+     /**
 
-     bool operator<(string str, PhysicalNumber b);
+     bool operator<(bool boo, PhysicalNumber b);
 
-     bool operator<(PhysicalNumber a, string str);
+     bool operator<(PhysicalNumber a, bool boo);
+     */
 
      bool operator!=(PhysicalNumber a, PhysicalNumber b);
+     /**
 
-     bool operator!=(string str, PhysicalNumber b);
+     bool operator!=(bool boo, PhysicalNumber b);
 
-     bool operator!=(PhysicalNumber a, string str);
+
+     bool operator!=(PhysicalNumber a, bool boo);
+     */
 
      string reformString(PhysicalNumber a, string str);
 
