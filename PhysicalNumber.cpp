@@ -528,7 +528,7 @@ PhysicalNumber ariel::operator--(PhysicalNumber &a,int){
     */
 }
 
-PhysicalNumber ariel::operator++(PhysicalNumber &a,int){
+PhysicalNumber ariel::operator++(ariel::PhysicalNumber &a,int){
     int prev=a._value;
     a._value=a._value+1;
     return PhysicalNumber(prev,a._unit);
@@ -542,7 +542,7 @@ PhysicalNumber ariel::operator++(PhysicalNumber &a,int){
 }
 
 
-PhysicalNumber ariel::operator++(PhysicalNumber &a){
+PhysicalNumber ariel::operator++(ariel::PhysicalNumber &a){
     a._value=a._value+1;
     return a;
     /**
