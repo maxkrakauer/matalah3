@@ -276,6 +276,12 @@ string ariel::PhysicalNumber::toString(){
      }
 
 
+     string ariel::reformString(PhysicalNumber a, string str){
+        return str+"["+unitToStr(a._unit)+"]";
+    }
+
+
+
 
      ariel::PhysicalNumber strToNum(string s){
         //create char array
@@ -332,6 +338,8 @@ string ariel::PhysicalNumber::toString(){
 
     }
 
+    
+
 
 
     string ariel::operator+(PhysicalNumber a, PhysicalNumber b){
@@ -365,6 +373,25 @@ string ariel::PhysicalNumber::toString(){
          return (a+b);
      }
 
+
+     string ariel::operator-(PhysicalNumber a, PhysicalNumber b){
+         if(!same(a._unit, b._unit))
+         throw "mismatch";
+         else{
+             double val = ariel::convert(b._value, a._unit,b._unit);
+             double sum = a._value - val;
+             string str;
+             string total = to_string(sum);
+             string reformed = removeZeroes(total);
+             str = reformed+  ariel::toString(a._unit);
+             cout<<str<<endl;
+             return str;
+         }
+     }
+
+
+
+
      string operator-(string str, PhysicalNumber b){
          PhysicalNumber a = strToNum(str);
          return (a-b);
@@ -374,6 +401,8 @@ string ariel::PhysicalNumber::toString(){
          PhysicalNumber b = strToNum(str);
          return (a-b);
      }
+
+     
 
     
     string ariel::operator+=(PhysicalNumber &a, PhysicalNumber b){
@@ -397,8 +426,7 @@ string ariel::PhysicalNumber::toString(){
 
      string operator+=(PhysicalNumber &a, string str){
          PhysicalNumber b = strToNum(str);
-         a+=b;
-         return a.toString();
+         return a+=b;
      }
 
 
@@ -412,20 +440,7 @@ string ariel::PhysicalNumber::toString(){
         return a.toString();
      }
 
-     string ariel::operator-(PhysicalNumber a, PhysicalNumber b){
-         if(!same(a._unit, b._unit))
-         throw "mismatch";
-         else{
-             double val = ariel::convert(b._value, a._unit,b._unit);
-             double sum = a._value - val;
-             string str;
-             string total = to_string(sum);
-             string reformed = removeZeroes(total);
-             str = reformed+  ariel::toString(a._unit);
-             cout<<str<<endl;
-             return str;
-         }
-     }
+     
 
 
      string ariel::operator-=(PhysicalNumber &a, PhysicalNumber b){
@@ -446,11 +461,10 @@ string ariel::PhysicalNumber::toString(){
 
      string operator-=(PhysicalNumber &a, string str){
          PhysicalNumber b = strToNum(str);
-         a-=b;
-         return a.toString();
+         return a-=b;
      }
 
-     
+
 
 
 
@@ -619,12 +633,33 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
             return (a._value == convert(b._value, a._unit,b._unit));
     }
 
+    bool operator==(string str, PhysicalNumber b){
+         PhysicalNumber a = strToNum(str);
+         return a==b;
+    }
+
+    bool operator==(PhysicalNumber a, string str){
+        PhysicalNumber b = strToNum(str);
+        return a==b;
+    }
+
+
     bool ariel::operator>=(PhysicalNumber a, PhysicalNumber b){
         if (same(a._unit,b._unit)==false)
         throw "incopatible units";
         else
             return (a._value >= convert(b._value, a._unit,b._unit));
     }
+
+    bool operator>=(string str, PhysicalNumber b){
+        PhysicalNumber a = strToNum(str);
+         return a>=b;
+    }
+
+     bool operator>=(PhysicalNumber a, string str){
+         PhysicalNumber b = strToNum(str);
+        return a>=b;
+     }
 
     bool ariel::operator<=(PhysicalNumber a, PhysicalNumber b){
         if (same(a._unit,b._unit)==false)
@@ -633,12 +668,33 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
             return (a._value <= convert(b._value, a._unit,b._unit));
     }
 
+    bool operator<=(string str, PhysicalNumber b){
+        PhysicalNumber a = strToNum(str);
+         return a<=b;
+    }
+
+
+     bool operator<=(PhysicalNumber a, string str){
+         PhysicalNumber b = strToNum(str);
+        return a<=b;
+     }
+
     bool ariel::operator<(PhysicalNumber a, PhysicalNumber b){
         if (same(a._unit,b._unit)==false)
         throw "incopatible units";
         else
             return (a._value < convert(b._value, a._unit,b._unit));
     }
+
+    bool operator<(string str, PhysicalNumber b){
+        PhysicalNumber a = strToNum(str);
+        return a<b;
+    }
+
+     bool operator<(PhysicalNumber a, string str){
+         PhysicalNumber b = strToNum(str);
+        return a<b;
+     }
 
     bool ariel::operator>(PhysicalNumber a, PhysicalNumber b){
         if (same(a._unit,b._unit)==false)
@@ -647,6 +703,16 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
             return (a._value > convert(b._value, a._unit,b._unit));
     }
 
+    bool operator>(string str, PhysicalNumber b){
+         PhysicalNumber a = strToNum(str);
+         return a>b;
+    }
+
+     bool operator>(PhysicalNumber a, string str){
+         PhysicalNumber b = strToNum(str);
+         return a>b;
+     }
+
     bool ariel::operator!=(PhysicalNumber a, PhysicalNumber b){
         if (same(a._unit,b._unit)==false)
         throw "incopatible units";
@@ -654,9 +720,16 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
             return (a._value != convert(b._value, a._unit,b._unit));
     }
 
+     bool operator!=(string str, PhysicalNumber b){
+         PhysicalNumber a = strToNum(str);
+         return a!=b;
+     }
+
+     bool operator!=(PhysicalNumber a, string str){
+         PhysicalNumber b = strToNum(str);
+         return a!=b;
+     }
 
 
-    string ariel::reformString(PhysicalNumber a, string str){
-        return str+"["+unitToStr(a._unit)+"]";
-    }
 
+    
