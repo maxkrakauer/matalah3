@@ -586,7 +586,7 @@ istream & ariel::operator>>(std::istream &in, PhysicalNumber& a){
     string s = a.toString();
    
     in>>s;
-    return s;
+    return in;
 
     /**
 
