@@ -69,7 +69,7 @@ int main() {
   .CHECK_OUTPUT(-e, "1[km]")
   .CHECK_OUTPUT(e-e, "0[km]")
   .CHECK_OUTPUT(+e,"1[km]")
- 
+  .CHECK_OUTPUT(++(++e),"1[km]")
 
     // YOUR TESTS - INSERT AS MANY AS YOU WANT
 

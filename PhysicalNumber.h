@@ -82,7 +82,7 @@ string unitToStr(Unit unit);
 
      string operator+=(PhysicalNumber &a, string str);
 
-     string operator+(PhysicalNumber a);
+    PhysicalNumber &  operator+(PhysicalNumber & a);
 
      PhysicalNumber operator-(PhysicalNumber a, PhysicalNumber b);
 
@@ -96,13 +96,13 @@ string unitToStr(Unit unit);
 
      PhysicalNumber operator-(PhysicalNumber a);
 
-     PhysicalNumber operator++(PhysicalNumber &a,int);
+     PhysicalNumber  operator++(PhysicalNumber &a,int);
 
-     PhysicalNumber operator--(PhysicalNumber &a, int);
+     PhysicalNumber  operator--(PhysicalNumber &a, int);
 
-     PhysicalNumber operator++(ariel::PhysicalNumber &a);
+     PhysicalNumber & operator++(PhysicalNumber &a);
 
-     PhysicalNumber operator--(ariel::PhysicalNumber &a);
+     PhysicalNumber  operator--(PhysicalNumber &a);
 
      PhysicalNumber strToNum(string str);
 
