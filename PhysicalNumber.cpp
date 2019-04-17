@@ -339,10 +339,10 @@ string ariel::PhysicalNumber::toString(){
     }
 
 
-    PhysicalNumber  ariel::operator+(PhysicalNumber & a){
+    string  ariel::operator+(PhysicalNumber & a){
         if(a._value<0)
             a._value = -a._value;
-        return a;
+        return a.toString();
     }
 
     
