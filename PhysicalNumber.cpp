@@ -349,7 +349,7 @@ string ariel::PhysicalNumber::toString(){
 
 
 
-    PhysicalNumber ariel::operator+(PhysicalNumber a, PhysicalNumber b){
+    PhysicalNumber ariel::operator+(PhysicalNumber & a, PhysicalNumber & b){
          cout<<"a+b has started"<<endl;
          if(same(a._unit, b._unit)==false){
          cout<<"same went wrong"<<endl;

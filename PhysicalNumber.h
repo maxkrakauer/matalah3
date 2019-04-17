@@ -72,7 +72,7 @@ string unitToStr(Unit unit);
 
      string removeZeroes(string number);
 
-     PhysicalNumber operator+(PhysicalNumber a, PhysicalNumber b);
+     PhysicalNumber operator+(PhysicalNumber & a, PhysicalNumber & b);
 
      string operator+(string str, PhysicalNumber b);
 
