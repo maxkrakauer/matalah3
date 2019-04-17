@@ -78,31 +78,31 @@ string unitToStr(Unit unit);
 
      string operator+(PhysicalNumber a, string str);
 
-     PhysicalNumber operator+=(PhysicalNumber &a, PhysicalNumber b);
+     PhysicalNumber & operator+=(PhysicalNumber &a, PhysicalNumber b);
 
      string operator+=(PhysicalNumber &a, string str);
 
     PhysicalNumber &  operator+(PhysicalNumber & a);
 
-     PhysicalNumber operator-(PhysicalNumber a, PhysicalNumber b);
+     PhysicalNumber  operator-(PhysicalNumber a, PhysicalNumber b);
 
      string operator-(string str, PhysicalNumber b);
 
      string operator-(PhysicalNumber a, string str);
 
-     PhysicalNumber operator-=(PhysicalNumber &a, PhysicalNumber b);
+     PhysicalNumber & operator-=(PhysicalNumber &a, PhysicalNumber b);
 
      string operator-=(PhysicalNumber &a, string str);
 
-     PhysicalNumber operator-(PhysicalNumber a);
+     PhysicalNumber & operator-(PhysicalNumber a);
 
-     PhysicalNumber  operator++(PhysicalNumber &a,int);
+     PhysicalNumber & operator++(PhysicalNumber &a,int);
 
-     PhysicalNumber  operator--(PhysicalNumber &a, int);
+     PhysicalNumber & operator--(PhysicalNumber &a, int);
 
      PhysicalNumber & operator++(PhysicalNumber &a);
 
-     PhysicalNumber  operator--(PhysicalNumber &a);
+     PhysicalNumber & operator--(PhysicalNumber &a);
 
      PhysicalNumber strToNum(string str);
 

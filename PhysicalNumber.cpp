@@ -387,7 +387,7 @@ string ariel::PhysicalNumber::toString(){
      */
 
 
-     PhysicalNumber ariel::operator-(PhysicalNumber a, PhysicalNumber b){
+     PhysicalNumber  ariel::operator-(PhysicalNumber a, PhysicalNumber b){
          if(!same(a._unit, b._unit))
          throw "mismatch";
          else{
@@ -421,7 +421,7 @@ string ariel::PhysicalNumber::toString(){
      
 */
     
-    PhysicalNumber ariel::operator+=(PhysicalNumber &a, PhysicalNumber b){
+    PhysicalNumber & ariel::operator+=(PhysicalNumber &a, PhysicalNumber b){
          cout<<"before same"<<endl;
          if(same(a._unit, b._unit)==false)
          throw "mismatch";
@@ -463,7 +463,7 @@ string ariel::PhysicalNumber::toString(){
      */
 
 
-     PhysicalNumber ariel::operator-=(PhysicalNumber &a, PhysicalNumber b){
+     PhysicalNumber & ariel::operator-=(PhysicalNumber &a, PhysicalNumber b){
          if(!same(a._unit, b._unit))
          throw "mismatch";
          else{
@@ -510,7 +510,7 @@ ariel::PhysicalNumber::PhysicalNumber(double value, Unit unit){
 
 
 
-    PhysicalNumber ariel::operator-(PhysicalNumber a){
+    PhysicalNumber & ariel::operator-(PhysicalNumber a){
              //string total = to_string(-a._value);
              //string reformed = removeZeroes(total);
              //cout<<reformed<<endl;
@@ -522,10 +522,12 @@ ariel::PhysicalNumber::PhysicalNumber(double value, Unit unit){
      }
 
 
-PhysicalNumber ariel::operator--(PhysicalNumber &a,int){
+PhysicalNumber &  ariel::operator--(PhysicalNumber &a,int){
     double prev=a._value;
     a._value=a._value-1;
-    return PhysicalNumber(prev,a._unit);
+    PhysicalNumber b(prev,a._unit);
+    return b;
+    //PhysicalNumber(prev,a._unit);
     /**
     string number = to_string(prev);
     string reformed = removeZeroes(number);
@@ -535,10 +537,12 @@ PhysicalNumber ariel::operator--(PhysicalNumber &a,int){
     */
 }
 
-PhysicalNumber  ariel::operator++(PhysicalNumber &a,int){
+PhysicalNumber & ariel::operator++(PhysicalNumber &a,int){
     int prev=a._value;
     a._value=a._value+1;
-    return PhysicalNumber(prev,a._unit);
+    PhysicalNumber b(prev,a._unit);
+    return b;
+    //return PhysicalNumber(prev,a._unit);
     /**
     string number = to_string(prev);
     string reformed = removeZeroes(number);
@@ -561,7 +565,7 @@ PhysicalNumber &  ariel::operator++(PhysicalNumber &a){
     */
 }
 
-PhysicalNumber ariel::operator--(PhysicalNumber &a){
+PhysicalNumber & ariel::operator--(PhysicalNumber &a){
     a._value=a._value-1;
     return a;
     /**
