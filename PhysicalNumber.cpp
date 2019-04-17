@@ -349,7 +349,7 @@ string ariel::PhysicalNumber::toString(){
 
 
 
-    PhysicalNumber ariel::operator+(PhysicalNumber & a, PhysicalNumber & b){
+    PhysicalNumber  ariel::operator+(PhysicalNumber  a, PhysicalNumber  b){
          cout<<"a+b has started"<<endl;
          if(same(a._unit, b._unit)==false){
          cout<<"same went wrong"<<endl;
@@ -361,7 +361,8 @@ string ariel::PhysicalNumber::toString(){
              cout<<"val is: "<<val<<endl;
              cout<<"a's is: "<<a._value<<endl;
              double sum = val + a._value;
-             return PhysicalNumber(sum, a._unit);
+             PhysicalNumber c(sum, a._unit);
+             return c;
              /**
              cout<<"sum is: "<<sum<<endl;
              string total = to_string(sum);
@@ -387,13 +388,14 @@ string ariel::PhysicalNumber::toString(){
      */
 
 
-     PhysicalNumber  ariel::operator-(PhysicalNumber a, PhysicalNumber b){
+     PhysicalNumber   ariel::operator-(PhysicalNumber a, PhysicalNumber b){
          if(!same(a._unit, b._unit))
          throw "mismatch";
          else{
              double val = ariel::convert(b._value, a._unit,b._unit);
              double sum = a._value - val;
-             return PhysicalNumber(sum, a._unit);
+             PhysicalNumber c(sum, a._unit);
+             return c;
              /**
              string str;
              string total = to_string(sum);
